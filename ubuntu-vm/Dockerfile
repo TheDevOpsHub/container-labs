@@ -16,7 +16,7 @@ RUN mkdir /var/run/sshd \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose SSH port
-EXPOSE 22
+EXPOSE 22 9100
 
 # Start supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
