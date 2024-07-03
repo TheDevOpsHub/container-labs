@@ -1,0 +1,38 @@
+groups:
+  - name: ubuntu-vm-alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: rate(node_cpu_seconds_total[1m]) > 0.8
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage detected on {{ $labels.instance }}"
+          description: "CPU usage is above 80% for more than 2 minutes."
+
+      - alert: InstanceDown
+        expr: up == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance {{ $labels.instance }} down"
+          description: "Instance {{ $labels.instance }} has been down for more than 5 minutes."
+
+      - alert: HighMemoryUsage
+        expr: node_memory_Active_bytes / node_memory_MemTotal_bytes > 0.8
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High Memory usage detected on {{ $labels.instance }}"
+          description: "Memory usage is above 80% for more than 5 minutes."
+
+      - alert: HighDiskUsage
+        expr: node_filesystem_free_bytes / node_filesystem_size_bytes < 0.1
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High Disk usage detected on {{ $labels.instance }}"
+          description: "Disk space usage is above 90% for more than 10 minutes."
