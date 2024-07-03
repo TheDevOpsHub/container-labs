@@ -5,12 +5,13 @@ services:
     container_name: ubuntu-vm1
     networks:
       - lab-network
-
   ubuntu-vm2:
     build: ./ubuntu-vm
     container_name: ubuntu-vm2
     networks:
       - lab-network
+  toolbox-vm:
+    build: ./toolbox-vm
 
   # TODO: Add later
   # ansible-vm:

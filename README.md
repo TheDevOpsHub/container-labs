@@ -44,22 +44,44 @@ docker-compose up --build
 - Access the VM1 and try to ping VM2 via lab-network
 
 ```bash
-docker run -it --network container-labs_lab-network container-labs-ubuntu-vm1 bash
-
+docker exec -it --network container-labs_lab-network ubuntu-vm1 bash
+## To check docker network availble, run: docker network ls
 ## Sample result:
-# ➜  container-labs git:(init-proj) ✗ docker run -it --network container-labs_lab-network container-labs-ubuntu-vm1 bash
-# root@9069153b62d5:/# ping ubuntu-vm2
-# PING ubuntu-vm2 (172.20.0.3) 56(84) bytes of data.
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.3): icmp_seq=1 ttl=64 time=0.256 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.3): icmp_seq=2 ttl=64 time=0.046 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.3): icmp_seq=3 ttl=64 time=0.066 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.3): icmp_seq=4 ttl=64 time=0.042 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.3): icmp_seq=5 ttl=64 time=0.055 ms
+# ➜  ~ docker exec -it ubuntu-vm1 bash
+# root@eefb8f36c1f6:/# ping ubuntu-vm2
+# PING ubuntu-vm2 (172.20.0.2) 56(84) bytes of data.
+# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=1 ttl=64 time=0.062 ms
+# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=2 ttl=64 time=0.074 ms
+# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=3 ttl=64 time=0.072 ms
+# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=4 ttl=64 time=0.076 ms
+# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=5 ttl=64 time=0.093 ms
 # ^C
 # --- ubuntu-vm2 ping statistics ---
-# 5 packets transmitted, 5 received, 0% packet loss, time 4134ms
-# rtt min/avg/max/mdev = 0.042/0.093/0.256/0.081 ms
-# root@9069153b62d5:/#
+# 5 packets transmitted, 5 received, 0% packet loss, time 4150ms
+# rtt min/avg/max/mdev = 0.062/0.075/0.093/0.010 ms
+# root@eefb8f36c1f6:/#
+```
+
+### Setup Node Exporter on 2 VM
+
+- Use toolbox VM: [toolbox-vm](./toolbox-vm/) env
+- Run
+
+```bash
+# Start the toolbox VM
+docker run -it --network container-labs_lab-network -v /mnt/d/CODING/GITHUB/TheDevOpsHub/container-labs/ansible:/tmp/ansible container-labs-toolbox-vm bash
+
+#########################
+## root@dcd0c02bf4ec:/#
+#########################
+ssh-keygen -t rsa
+# Ensure from the toolbox VM we can ssh to the 2 ubuntu VM
+ssh-copy-id root@ubuntu-vm1
+ssh-copy-id root@ubuntu-vm2
+# NOTE: Select yes to proccess
+# Now run playbook in the container
+cd /tmp/ansible
+ansible-playbook -i inventory.ini node-exporter-setup.yml
 ```
 
 ### Monitoring
