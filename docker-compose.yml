@@ -12,6 +12,18 @@ services:
     networks:
       - lab-network
 
+  # TODO: Add later
+  # ansible-vm:
+  #   build: ./ansible-vm
+  #   container_name: ansible-vm
+  #   volumes:
+  #     - ./ansible:/etc/ansible
+  #   networks:
+  #     - lab-network
+  #   depends_on:
+  #     - ubuntu-vm1
+  #     - ubuntu-vm2
+
   prometheus:
     image: prom/prometheus:latest
     volumes:

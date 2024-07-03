@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Node Exporter
+      apt:
+        name: node-exporter
+        state: present
+        update_cache: yes
+
+    - name: Start Node Exporter
+      systemd:
+        name: node-exporter
+        state: started
+        enabled: yes
