@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  ubuntu-vm1:
+    build: ./ubuntu-vm
+    container_name: ubuntu-vm1
+    networks:
+      - lab-network
+
+  ubuntu-vm2:
+    build: ./ubuntu-vm
+    container_name: ubuntu-vm2
+    networks:
+      - lab-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+    ports:
+      - '9090:9090'
+    networks:
+      - lab-network
+
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - '3000:3000'
+    networks:
+      - lab-network
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    ports:
+      - '9093:9093'
+    networks:
+      - lab-network
+
+networks:
+  lab-network:
+    driver: bridge
