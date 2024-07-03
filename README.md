@@ -42,7 +42,7 @@ docker-compose up --build
 ### Access the VM
 
 - Access the VM1 and try to ping VM2 via lab-network
-  
+
 ```bash
 docker exec -it --network container-labs_lab-network ubuntu-vm1 bash
 ## To check docker network availble, run: docker network ls
@@ -69,11 +69,18 @@ docker exec -it --network container-labs_lab-network ubuntu-vm1 bash
 
 ```bash
 # Start the toolbox VM
-docker run -it --network container-labs_lab-network container-labs-toolbox-vm bash
+docker run -it --network container-labs_lab-network -v /mnt/d/CODING/GITHUB/TheDevOpsHub/container-labs/ansible:/tmp/ansible container-labs-toolbox-vm bash
 
+#########################
+## root@dcd0c02bf4ec:/#
+#########################
+ssh-keygen -t rsa
 # Ensure from the toolbox VM we can ssh to the 2 ubuntu VM
-ssh
+ssh-copy-id root@ubuntu-vm1
+ssh-copy-id root@ubuntu-vm2
+# NOTE: Select yes to proccess
 # Now run playbook in the container
+cd /tmp/ansible
 ansible-playbook -i inventory.ini node-exporter-setup.yml
 ```
 

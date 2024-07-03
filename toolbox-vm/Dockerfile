@@ -12,7 +12,8 @@ RUN apt-get install -y --no-install-recommends \
   ca-certificates \
   curl \
   iputils-ping \
-  openssh-client
+  openssh-client \
+  openssh-server
 
 # Set Python version as an argument
 ARG PYTHON_VERSION=3.11
