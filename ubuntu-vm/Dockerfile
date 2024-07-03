@@ -6,8 +6,17 @@ RUN apt-get update && apt-get install -y \
   # allow other containers SSH into this container
   openssh-server \
   && rm -rf /var/lib/apt/lists/*
+# Configure SSH
+RUN mkdir /var/run/sshd \
+  && echo 'root:docker' | chpasswd \
+  && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+  && echo "export VISIBLE=now" >> /etc/profile
+
+# Configure supervisor to manage ssh service
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+
+# Expose SSH port
 EXPOSE 22
-CMD ["/entrypoint.sh"]
+
+# Start supervisor
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
