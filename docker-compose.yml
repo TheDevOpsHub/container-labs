@@ -12,6 +12,9 @@ services:
     networks:
       - lab-network
 
+  toolbox-vm:
+    build: ./toolbox-vm
+
   # TODO: Add later
   # ansible-vm:
   #   build: ./ansible-vm

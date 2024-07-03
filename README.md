@@ -46,6 +46,7 @@ docker-compose up --build
 ```bash
 docker run -it --network container-labs_lab-network container-labs-ubuntu-vm1 bash
 
+## To check docker network availble, run: docker network ls
 ## Sample result:
 # ➜  container-labs git:(init-proj) ✗ docker run -it --network container-labs_lab-network container-labs-ubuntu-vm1 bash
 # root@9069153b62d5:/# ping ubuntu-vm2
@@ -60,6 +61,21 @@ docker run -it --network container-labs_lab-network container-labs-ubuntu-vm1 ba
 # 5 packets transmitted, 5 received, 0% packet loss, time 4134ms
 # rtt min/avg/max/mdev = 0.042/0.093/0.256/0.081 ms
 # root@9069153b62d5:/#
+```
+
+### Setup Node Exporter on 2 VM
+
+- Use toolbox VM: [toolbox-vm](./toolbox-vm/) env
+- Run
+
+```bash
+# Start the toolbox VM
+docker run -it --network container-labs_lab-network container-labs-toolbox-vm bash
+
+# Ensure from the toolbox VM we can ssh to the 2 ubuntu VM
+ssh
+# Now run playbook in the container
+ansible-playbook -i inventory.ini node-exporter-setup.yml
 ```
 
 ### Monitoring

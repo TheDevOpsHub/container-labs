@@ -1,0 +1,6 @@
+---
+- name: Install Node Exporter on Ubuntu VMs
+  hosts: ubuntu-vms
+  become: yes
+  roles:
+    - node-exporter
