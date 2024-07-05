@@ -12,11 +12,10 @@ RUN mkdir /var/run/sshd \
   && sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
   && echo "export VISIBLE=now" >> /etc/profile
 
-# Configure supervisor to manage ssh service
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN systemctl enable ssh
 
-# Expose SSH port
+# Expose SSH, Node Exporter ports
 EXPOSE 22 9100
 
-# Start supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Start systemd on container start
+CMD ["/lib/systemd/systemd"]
