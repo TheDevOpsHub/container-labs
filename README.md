@@ -2,6 +2,15 @@
 
 Container Labs is a project to set up and manage multiple server environments using Docker containers and networks, along with monitoring using Prometheus, Grafana, and Alertmanager.
 
+## Labs stack
+
+- ubuntu-vm1: An Ubuntu VM running in a Docker container.
+- ubuntu-vm2: An Ubuntu VM running in a Docker container.
+- prometheus: A Prometheus server for monitoring.
+- grafana: A Grafana server for visualization.
+- alertmanager: An Alertmanager server for alerting
+- elk: An ELK server for logging
+
 ## Getting Started
 
 ### Prerequisites
@@ -92,16 +101,13 @@ ssh-copy-id root@ubuntu-vm1 # root@ubuntu-vm2
 systemctl status node_exporter
 ```
 
-### Monitoring
+### Access services
+
+<!-- Monitoring -->
 
 - Access Prometheus at http://localhost:9090
 - Access Grafana at http://localhost:3000 (default login: admin/admin)
 - Access Alertmanager at http://localhost:9093
-
-### Services
-
-- ubuntu-vm1: An Ubuntu VM running in a Docker container.
-- ubuntu-vm2: An Ubuntu VM running in a Docker container.
-- prometheus: A Prometheus server for monitoring.
-- grafana: A Grafana server for visualization.
-- alertmanager: An Alertmanager server for alerting
+<!-- Logging -->
+- Access Elasticsearch at http://localhost:9200
+- Access Kibana at http://localhost:5061

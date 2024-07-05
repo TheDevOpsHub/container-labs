@@ -7,26 +7,17 @@ services:
     privileged: true
     networks:
       - lab-network
+
   ubuntu-vm2:
     build: ./ubuntu-vm
     container_name: ubuntu-vm2
     privileged: true
     networks:
       - lab-network
+
+  # To run ansible and other tools
   toolbox-vm:
     build: ./toolbox-vm
-
-  # TODO: Add later
-  # ansible-vm:
-  #   build: ./ansible-vm
-  #   container_name: ansible-vm
-  #   volumes:
-  #     - ./ansible:/etc/ansible
-  #   networks:
-  #     - lab-network
-  #   depends_on:
-  #     - ubuntu-vm1
-  #     - ubuntu-vm2
 
   prometheus:
     image: prom/prometheus:latest
@@ -56,6 +47,40 @@ services:
     networks:
       - lab-network
 
+  # Elasticsearch Service
+  elasticsearch:
+    build:
+      context: ./elk/elasticsearch
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - lab-network
+
+  # Logstash Service
+  logstash:
+    build:
+      context: ./elk/logstash
+    container_name: logstash
+    ports:
+      - "5044:5044"
+    networks:
+      - lab-network
+
+  # Kibana Service
+  kibana:
+    build:
+      context: ./elk/kibana
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    networks:
+      - lab-network
+
+# Network definition
 networks:
   lab-network:
     driver: bridge
