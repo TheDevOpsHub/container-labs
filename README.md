@@ -110,4 +110,4 @@ systemctl status node_exporter
 - Access Alertmanager at http://localhost:9093
 <!-- Logging -->
 - Access Elasticsearch at http://localhost:9200
-- Access Kibana at http://localhost:5061
+- Access Kibana at http://localhost:5601
