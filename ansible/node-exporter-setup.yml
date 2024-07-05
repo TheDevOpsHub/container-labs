@@ -3,4 +3,4 @@
   hosts: ubuntu_vms
   become: yes
   roles:
-    - node-exporter
+    - role: prometheus.prometheus.node_exporter
