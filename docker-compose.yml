@@ -1,13 +1,16 @@
 version: '3.8'
 services:
+  # Note that running systemd inside a Docker container requires the --privileged flag.
   ubuntu-vm1:
     build: ./ubuntu-vm
     container_name: ubuntu-vm1
+    privileged: true
     networks:
       - lab-network
   ubuntu-vm2:
     build: ./ubuntu-vm
     container_name: ubuntu-vm2
+    privileged: true
     networks:
       - lab-network
   toolbox-vm:

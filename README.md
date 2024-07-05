@@ -78,10 +78,18 @@ ssh-keygen -t rsa
 # Ensure from the toolbox VM we can ssh to the 2 ubuntu VM
 ssh-copy-id root@ubuntu-vm1
 ssh-copy-id root@ubuntu-vm2
+
+# Install the community prometheus.prometheus role
+ansible-galaxy collection install prometheus.prometheus
+
 # NOTE: Select yes to proccess
 # Now run playbook in the container
 cd /tmp/ansible
 ansible-playbook -i inventory.ini node-exporter-setup.yml
+
+# We now can access to the ubuntu VMs to check new service
+ssh-copy-id root@ubuntu-vm1 # root@ubuntu-vm2
+systemctl status node_exporter
 ```
 
 ### Monitoring
