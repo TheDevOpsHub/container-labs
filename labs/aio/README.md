@@ -1,6 +1,6 @@
 # AIO labs
 
-## Labs stack
+## 1. Labs stack
 
 - ubuntu-vm1: An Ubuntu VM running in a Docker container.
 - ubuntu-vm2: An Ubuntu VM running in a Docker container.
@@ -8,24 +8,15 @@
 - grafana: A Grafana server for visualization.
 - alertmanager: An Alertmanager server for alerting
 - elk: An ELK server for logging
+- postgres: PostgreSQL database
 
-## Getting Started
+## 2. Setup
 
 ### Prerequisites
 
-- Docker
-- Docker Compose
+- Docker + Docker Compose
 
-### Setup
-
-Clone the repository and navigate into it:
-
-```bash
-git clone https://github.com/TheDevOpsHub/container-labs.git
-cd container-labs
-```
-
-## Build and run the containers
+### Build and run the containers
 
 - Option-1: Build and run in background (Recommend)
 
@@ -46,7 +37,7 @@ docker-compose up --build
 # To stop, press 'Ctrl + C'
 ```
 
-## Explore the resources
+## 3. Explore the resources
 
 ### Access the VM
 
@@ -110,3 +101,12 @@ systemctl status node_exporter
 - Access Alertmanager at http://localhost:9093
 - Access Elasticsearch at http://localhost:9200
 - Access Kibana at http://localhost:5601
+
+### Dive into the container
+
+- Postgresql
+
+```bash
+docker exec -it postgresql bash
+root@0d24ff3b84a9:/# psql -v
+```
