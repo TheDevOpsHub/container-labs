@@ -8,6 +8,7 @@
 - grafana: A Grafana server for visualization.
 - alertmanager: An Alertmanager server for alerting
 - elk: An ELK server for logging
+- postgres: PostgreSQL database
 
 ## 2. Setup
 
