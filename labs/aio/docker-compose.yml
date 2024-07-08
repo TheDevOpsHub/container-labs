@@ -2,14 +2,14 @@ version: '3.8'
 services:
   # Note that running systemd inside a Docker container requires the --privileged flag.
   ubuntu-vm1:
-    build: ./ubuntu-vm
+    build: ../../pools/ubuntu-vm
     container_name: ubuntu-vm1
     privileged: true
     networks:
       - lab-network
 
   ubuntu-vm2:
-    build: ./ubuntu-vm
+    build: ../../pools/ubuntu-vm
     container_name: ubuntu-vm2
     privileged: true
     networks:
@@ -17,13 +17,13 @@ services:
 
   # To run ansible and other tools
   toolbox-vm:
-    build: ./toolbox-vm
+    build: ../../pools/toolbox-vm
 
   prometheus:
     image: prom/prometheus:latest
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+      - ../../pools/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../../pools/prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
     ports:
       - '9090:9090'
     networks:
@@ -32,7 +32,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     volumes:
-      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ../../pools/grafana/provisioning:/etc/grafana/provisioning
     ports:
       - '3000:3000'
     networks:
@@ -41,7 +41,7 @@ services:
   alertmanager:
     image: prom/alertmanager:latest
     volumes:
-      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+      - ../../pools/alertmanager/config.yml:/etc/alertmanager/config.yml
     ports:
       - '9093:9093'
     networks:
@@ -50,7 +50,7 @@ services:
   # Elasticsearch Service
   elasticsearch:
     build:
-      context: ./elk/elasticsearch
+      context: ../../pools/elk/elasticsearch
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
@@ -63,7 +63,7 @@ services:
   # Logstash Service
   logstash:
     build:
-      context: ./elk/logstash
+      context: ../../pools/elk/logstash
     container_name: logstash
     ports:
       - "5044:5044"
@@ -73,7 +73,7 @@ services:
   # Kibana Service
   kibana:
     build:
-      context: ./elk/kibana
+      context: ../../pools/elk/kibana
     container_name: kibana
     ports:
       - "5601:5601"
