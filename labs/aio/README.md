@@ -53,17 +53,17 @@ docker-compose up --build
 - Access the VM1 and try to ping VM2 via lab-network
 
 ```bash
-docker exec -it --network container-labs_lab-network ubuntu-vm1 bash
+docker exec -it --network aio_lab-network ubuntu-vm1 bash
 ## To check docker network availble, run: docker network ls
 ## Sample result:
 # ➜  ~ docker exec -it ubuntu-vm1 bash
 # root@eefb8f36c1f6:/# ping ubuntu-vm2
 # PING ubuntu-vm2 (172.20.0.2) 56(84) bytes of data.
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=1 ttl=64 time=0.062 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=2 ttl=64 time=0.074 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=3 ttl=64 time=0.072 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=4 ttl=64 time=0.076 ms
-# 64 bytes from ubuntu-vm2.container-labs_lab-network (172.20.0.2): icmp_seq=5 ttl=64 time=0.093 ms
+# 64 bytes from ubuntu-vm2.aio_lab-network (172.20.0.2): icmp_seq=1 ttl=64 time=0.062 ms
+# 64 bytes from ubuntu-vm2.aio_lab-network (172.20.0.2): icmp_seq=2 ttl=64 time=0.074 ms
+# 64 bytes from ubuntu-vm2.aio_lab-network (172.20.0.2): icmp_seq=3 ttl=64 time=0.072 ms
+# 64 bytes from ubuntu-vm2.aio_lab-network (172.20.0.2): icmp_seq=4 ttl=64 time=0.076 ms
+# 64 bytes from ubuntu-vm2.aio_lab-network (172.20.0.2): icmp_seq=5 ttl=64 time=0.093 ms
 # ^C
 # --- ubuntu-vm2 ping statistics ---
 # 5 packets transmitted, 5 received, 0% packet loss, time 4150ms
@@ -78,7 +78,7 @@ docker exec -it --network container-labs_lab-network ubuntu-vm1 bash
 
 ```bash
 # Start the toolbox VM
-docker run -it --network container-labs_lab-network \
+docker run -it --network aio_lab-network \
            -v /mnt/d/CODING/GITHUB/TheDevOpsHub/container-labs/src/ansible:/tmp/ansible \
            container-labs-toolbox-vm bash
 
