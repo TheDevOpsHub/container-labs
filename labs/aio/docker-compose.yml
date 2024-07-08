@@ -55,8 +55,8 @@ services:
     environment:
       - discovery.type=single-node
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - '9200:9200'
+      - '9300:9300'
     networks:
       - lab-network
 
@@ -66,7 +66,7 @@ services:
       context: ../../pools/elk/logstash
     container_name: logstash
     ports:
-      - "5044:5044"
+      - '5044:5044'
     networks:
       - lab-network
 
@@ -76,7 +76,21 @@ services:
       context: ../../pools/elk/kibana
     container_name: kibana
     ports:
-      - "5601:5601"
+      - '5601:5601'
+    networks:
+      - lab-network
+
+  # Postgresql
+  postgresql:
+    build:
+      context: ../../pools/postgresql
+    container_name: postgresql
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - '5432:5432'
     networks:
       - lab-network
 
