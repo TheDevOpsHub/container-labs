@@ -1,0 +1,3 @@
+CREATE DATABASE containerlab;
+-- CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
+GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;

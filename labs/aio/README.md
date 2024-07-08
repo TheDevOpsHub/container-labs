@@ -106,6 +106,6 @@ systemctl status node_exporter
 - Postgresql
 
 ```bash
- docker exec -it postgresql bash
+docker exec -it postgresql bash
 root@0d24ff3b84a9:/# psql -v
 ```
