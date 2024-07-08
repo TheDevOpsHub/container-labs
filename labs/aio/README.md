@@ -99,17 +99,14 @@ cd /tmp/ansible
 ansible-playbook -i inventory.ini node-exporter-setup.yml
 
 # We now can access to the ubuntu VMs to check new service
-ssh-copy-id root@ubuntu-vm1 # root@ubuntu-vm2
+ssh root@ubuntu-vm1 # or: ssh root@ubuntu-vm2
 systemctl status node_exporter
 ```
 
 ### Access services
 
-<!-- Monitoring -->
-
 - Access Prometheus at http://localhost:9090
 - Access Grafana at http://localhost:3000 (default login: admin/admin)
 - Access Alertmanager at http://localhost:9093
-<!-- Logging -->
 - Access Elasticsearch at http://localhost:9200
 - Access Kibana at http://localhost:5601
