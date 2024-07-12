@@ -49,4 +49,4 @@ docker-compose up --build
 docker stop nginx-webserver1
 ```
 
-    ![server2](./assets/server2.png)
+![server2](./assets/server2.png)
