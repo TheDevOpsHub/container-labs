@@ -50,3 +50,4 @@ docker-compose up --build
   ```
 
   ![server2](./assets/server2.png)
+  ![server2](./assets/server2.png)
