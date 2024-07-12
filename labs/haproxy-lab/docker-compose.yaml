@@ -6,7 +6,8 @@ services:
       context: ../../pools/haproxy
     container_name: haproxy
     ports:
-      - '80:80'
+      # You can replace 6081 by the port work on your machine!
+      - '6081:80'
     depends_on:
       - nginx-webserver1
       - nginx-webserver2
