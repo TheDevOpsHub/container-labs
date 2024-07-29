@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  nginx-proxy:
+    build:
+      context: ./nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - '6082:80'
+    depends_on:
+      - nginx-lab.nginx-webserver1
+    networks:
+      - nginx-network
+
+  nginx-lab.nginx-webserver1:
+    build:
+      context: ../../pools/nginx-webserver/nginx-webserver1
+    container_name: nginx-lab.nginx-webserver1
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    driver: bridge
