@@ -13,22 +13,12 @@
 
 ### Build and run the containers
 
-- Option-1: Build and run in background (Recommend)
-
 ```bash
 cd labs/nginx-lab
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:
 docker compose down
-```
-
-- Option-2: Run and verbose the logs
-
-```bash
-cd labs/nginx-lab
-docker-compose up --build
-# To stop, press 'Ctrl + C'
 ```
 
 ## 3. Explore the Nginx proxy
