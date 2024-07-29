@@ -34,4 +34,4 @@ docker-compose up --build
 ## 3. Explore the Nginx proxy
 
 - Access the Nginx Proxy at http://localhost:6082 (You can replace 6082 by the port work on your machine!)
-- Refresh the page multiple time and you would see that the HA Proxy route to `nginx-webserver1`
+- Refresh the page multiple time and you would see that the Nginx Proxy route to `nginx-webserver1`
