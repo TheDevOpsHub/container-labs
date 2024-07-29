@@ -1,4 +1,4 @@
-# HA proxy lab
+# Nginx proxy lab
 
 ## 1. Labs stack
 
