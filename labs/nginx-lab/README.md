@@ -13,8 +13,6 @@
 
 ### Build and run the containers
 
-- Option-1: Build and run in background (Recommend)
-
 ```bash
 cd labs/nginx-lab
 docker-compose up --build -d
@@ -23,15 +21,7 @@ docker-compose up --build -d
 docker compose down
 ```
 
-- Option-2: Run and verbose the logs
-
-```bash
-cd labs/nginx-lab
-docker-compose up --build
-# To stop, press 'Ctrl + C'
-```
-
 ## 3. Explore the Nginx proxy
 
 - Access the Nginx Proxy at http://localhost:6082 (You can replace 6082 by the port work on your machine!)
-- Refresh the page multiple time and you would see that the HA Proxy route to `nginx-webserver1`
+- Refresh the page multiple time and you would see that the Nginx Proxy route to `nginx-webserver1`

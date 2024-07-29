@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  nginx-https-proxy:
+    build:
+      context: ./nginx-proxy
+    container_name: nginx-https-proxy
+    ports:
+      - '6083:443'
+    depends_on:
+      - nginx-https-lab.nginx-webserver1
+    networks:
+      - nginx-https-network
+
+  nginx-https-lab.nginx-webserver1:
+    build:
+      context: ../../pools/nginx-webserver/nginx-webserver1
+    container_name: nginx-https-lab.nginx-webserver1
+    networks:
+      - nginx-https-network
+
+networks:
+  nginx-https-network:
+    driver: bridge
