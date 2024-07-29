@@ -3,7 +3,7 @@
 ## 1. Labs stack
 
 - [nginx-webserver1](https://nginx.org/): An Ubuntu VM running in nginx webserver.
-- [nginx-proxy](https://nginx.org/): Nginx proxy points to 2 these web servers.
+- [nginx-proxy](https://nginx.org/): Nginx proxy points to the web servers.
 
 ## 2. Setup
 
@@ -28,7 +28,6 @@ docker compose down
 ```bash
 cd labs/nginx-lab
 docker-compose up --build
-
 # To stop, press 'Ctrl + C'
 ```
 
