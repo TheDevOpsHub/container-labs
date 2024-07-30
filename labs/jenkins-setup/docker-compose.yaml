@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  jenkins-controller:
+    build:
+      context: ../../pools/jenkins/jenkins-controller
+    container_name: jenkins-controller
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    networks:
+      - jenkins-network
+
+volumes:
+  jenkins_data:
+
+networks:
+  jenkins-network:
+    driver: bridge
