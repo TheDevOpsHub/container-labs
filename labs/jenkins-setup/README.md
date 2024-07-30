@@ -24,7 +24,7 @@ docker compose down
 ## 3. Explore the Jenkins
 
 - Visit http://localhost:8080/ to explore and use Jenkins
-- Get the init password to login:
+- Get the init password to login (Login admin/initialAdminPassword):
 
 ```bash
 docker exec jenkins-controller cat /var/jenkins_home/secrets/initialAdminPassword
