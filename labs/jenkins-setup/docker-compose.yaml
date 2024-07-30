@@ -13,19 +13,6 @@ services:
     networks:
       - jenkins-network
 
-  jenkins-agent:
-    build:
-      context: ../../pools/jenkins/jenkins-agent
-    container_name: jenkins-agent
-    environment:
-      - JENKINS_URL=http://jenkins-controller:8080
-      - JENKINS_AGENT_NAME=jenkins-agent
-      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
-    networks:
-      - jenkins-network
-    depends_on:
-      - jenkins-controller
-
 volumes:
   jenkins_data:
 
