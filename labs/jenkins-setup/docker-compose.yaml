@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  jenkins-controller:
+    build:
+      context: ../../pools/jenkins/jenkins-controller
+    container_name: jenkins-controller
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    networks:
+      - jenkins-network
+
+  jenkins-agent:
+    build:
+      context: ../../pools/jenkins/jenkins-agent
+    container_name: jenkins-agent
+    environment:
+      - JENKINS_URL=http://jenkins-controller:8080
+      - JENKINS_AGENT_NAME=jenkins-agent
+      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+    networks:
+      - jenkins-network
+    depends_on:
+      - jenkins-controller
+
+volumes:
+  jenkins_data:
+
+networks:
+  jenkins-network:
+    driver: bridge
