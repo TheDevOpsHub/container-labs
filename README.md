@@ -1,4 +1,4 @@
-# Container Labs
+# Container Labs 🐳
 
 Container Labs is a **DevOps practice** project designed to set up and manage multiple server environments using Docker containers and networks, along with monitoring using Prometheus, Grafana, and Alertmanager.
 
