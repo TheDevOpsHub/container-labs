@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  nginx-redirect-proxy:
+    build:
+      context: ./nginx-redirect-proxy
+    container_name: nginx-redirect-proxy
+    ports:
+      - '6087:80'
+    depends_on:
+      - nginx-redirect.nginx-webserver1
+      - nginx-redirect.nginx-webserver2
+    networks:
+      - nginx-redirect-proxy-network
+
+  nginx-redirect.nginx-webserver1:
+    build:
+      context: ../../pools/nginx-webserver/nginx-webserver1
+    container_name: nginx-redirect.nginx-webserver1
+    ports:
+      - '6091:80'
+    networks:
+      - nginx-redirect-proxy-network
+
+  nginx-redirect.nginx-webserver2:
+    build:
+      context: ../../pools/nginx-webserver/nginx-webserver2
+    container_name: nginx-redirect.nginx-webserver2
+    ports:
+      - '6092:80'
+    networks:
+      - nginx-redirect-proxy-network
+
+networks:
+  nginx-redirect-proxy-network:
+    driver: bridge
