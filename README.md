@@ -40,3 +40,4 @@ Contains various labs with different architectural combinations. These labs comb
 - [nginx-https-lab](./labs/nginx-https-lab/)
 - [nginx-lab](./labs/nginx-lab/)
 - [nginx-redirect](./labs/nginx-redirect/)
+- [apache-httpd](./labs/apache-httpd/)
