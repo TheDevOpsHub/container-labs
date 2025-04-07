@@ -44,6 +44,7 @@ Contains various labs with different architectural combinations. These labs comb
   - [nginx-https-lab](./labs/nginx/nginx-https-lab/)
   - [nginx-redirect](./labs/nginx/nginx-redirect/)
 - [apache-httpd](./labs/apache-httpd/)
+  - [apache-httpd-basic](./labs/apache-httpd/apache-httpd-basic/)
 - [os](./labs/os/)
   - [ubuntu](./labs/os/ubuntu/)
   - [windows](./labs/os/windows/)
