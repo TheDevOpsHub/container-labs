@@ -15,7 +15,7 @@
 ### Build and run the containers
 
 ```bash
-cd labs/nginx-redirect
+cd labs/nginx/nginx-redirect
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:

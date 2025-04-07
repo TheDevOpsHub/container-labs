@@ -3,7 +3,7 @@ version: '3.8'
 services:
   haproxy:
     build:
-      context: ../../pools/haproxy
+      context: ../../../pools/haproxy
     container_name: haproxy
     ports:
       # You can replace 6081 by the port work on your machine!
@@ -16,14 +16,14 @@ services:
 
   nginx-webserver1:
     build:
-      context: ../../pools/nginx-webserver/nginx-webserver1
+      context: ../../../pools/nginx-webserver/nginx-webserver1
     container_name: nginx-webserver1
     networks:
       - haproxy-network
 
   nginx-webserver2:
     build:
-      context: ../../pools/nginx-webserver/nginx-webserver2
+      context: ../../../pools/nginx-webserver/nginx-webserver2
     container_name: nginx-webserver2
     networks:
       - haproxy-network

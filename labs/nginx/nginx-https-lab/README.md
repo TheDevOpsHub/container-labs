@@ -16,7 +16,7 @@
 Generate a self-signed SSL certificate and key in the nginx-proxy/ssl directory. You can use OpenSSL to generate these files:
 
 ```bash
-cd labs/nginx-https-lab
+cd labs/nginx/nginx-https-lab
 mkdir -p nginx-proxy/ssl
 cd nginx-proxy/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -subj "/CN=localhost"
@@ -25,7 +25,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout nginx.key -out nginx
 ### Build and run the containers
 
 ```bash
-cd labs/nginx-https-lab
+cd labs/nginx/nginx-https-lab
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:

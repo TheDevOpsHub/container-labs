@@ -14,7 +14,7 @@ services:
 
   nginx-lab.nginx-webserver1:
     build:
-      context: ../../pools/nginx-webserver/nginx-webserver1
+      context: ../../../pools/nginx-webserver/nginx-webserver1
     container_name: nginx-lab.nginx-webserver1
     networks:
       - nginx-network

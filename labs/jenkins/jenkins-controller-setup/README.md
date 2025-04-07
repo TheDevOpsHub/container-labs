@@ -14,7 +14,7 @@
 ### Build and run the containers
 
 ```bash
-cd labs/jenkins-setup
+cd labs/jenkins/jenkins-controller-setup
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:
