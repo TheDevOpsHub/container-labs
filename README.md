@@ -35,7 +35,6 @@ Contains various labs with different architectural combinations. These labs comb
 
 - [linux](./labs/linux/)
   - [fundamental](./labs/linux/fundamental/)
-- [aio](./labs/aio/)
 - [haproxy](./labs/haproxy/)
   - [haproxy-basic](./labs/haproxy/haproxy-basic/)
 - [jenkins](./labs/jenkins/)
@@ -49,3 +48,5 @@ Contains various labs with different architectural combinations. These labs comb
 - [os](./labs/os/)
   - [ubuntu](./labs/os/ubuntu/)
   - [windows](./labs/os/windows/)
+- [mix](./labs/mix/)
+  - [aio](./labs/mix/aio/)

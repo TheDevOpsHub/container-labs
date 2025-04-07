@@ -21,7 +21,7 @@
 - Option-1: Build and run in background (Recommend)
 
 ```bash
-cd labs/aio
+cd labs/others/aio
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:
@@ -31,7 +31,7 @@ docker compose down
 - Option-2: Run and verbose the logs
 
 ```bash
-cd labs/aio
+cd labs/others/aio
 docker-compose up --build
 
 # To stop, press 'Ctrl + C'
@@ -64,7 +64,7 @@ docker exec -it --network aio_lab-network ubuntu-vm1 bash
 
 ### Setup Node Exporter on 2 VM
 
-- Use toolbox VM: [toolbox-vm](../../pools/toolbox-vm/) env
+- Use toolbox VM: [toolbox-vm](../../../pools/toolbox-vm/) env
 - Run
 
 ```bash
