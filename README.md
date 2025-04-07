@@ -33,7 +33,8 @@ We devided this repo into 3 main areas:
 [**labs**](./labs/)
 Contains various labs with different architectural combinations. These labs combine components from the [**pools**](./pools/) directory and utilize code from the [**src**](./src/) directory to provide hands-on architectural setups.
 
-- [linux-fundamental](./labs/linux-fundamental/)
+- [linux](./labs/linux/)
+  - [fundamental](./labs/linux/fundamental/)
 - [aio](./labs/aio/)
 - [haproxy-lab](./labs/haproxy-lab/)
 - [jenkins](./labs/jenkins/)
