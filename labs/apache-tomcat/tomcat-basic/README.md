@@ -1,7 +1,3 @@
-Here’s a similar version of your Apache HTTPD lab, but for **Apache Tomcat**:
-
----
-
 # The Apache Tomcat Lab
 
 ## Overview
