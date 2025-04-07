@@ -22,16 +22,18 @@ cd container-labs
 
 We devided this repo into 3 main areas:
 
-[**pools**](./pools/)
+### Pools
 
-- Contains the base infrastructure for each tool and server. For example: `ubuntu-vm`, `grafana`, `prometheus`, ...
+[**pools**](./pools/) contains the base infrastructure for each tool and server. For example: `ubuntu-vm`, `grafana`, `prometheus`, ...
 
-[**src**](./src/)
+### Src
 
-- Contains source code, script for configuration and infrastructure as code approach. E.g: Ansible/Terraform
+[**src**](./src/) contains source code, script for configuration and infrastructure as code approach. E.g: Ansible/Terraform
 
-[**labs**](./labs/)
-Contains various labs with different architectural combinations. These labs combine components from the [**pools**](./pools/) directory and utilize code from the [**src**](./src/) directory to provide hands-on architectural setups.
+### Labs
+
+[**labs**](./labs/) contains various labs with different architectural combinations.<br>
+These labs combine components from the [**pools**](./pools/) directory and utilize code from the [**src**](./src/) directory to provide hands-on architectural setups.
 
 - [linux-fundamental](./labs/linux-fundamental/)
 - [aio](./labs/aio/)
