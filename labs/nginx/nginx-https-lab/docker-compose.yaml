@@ -14,7 +14,7 @@ services:
 
   nginx-https-lab.nginx-webserver1:
     build:
-      context: ../../pools/nginx-webserver/nginx-webserver1
+      context: ../../../pools/nginx-webserver/nginx-webserver1
     container_name: nginx-https-lab.nginx-webserver1
     networks:
       - nginx-https-network

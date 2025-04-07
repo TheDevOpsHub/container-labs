@@ -15,7 +15,7 @@ services:
 
   nginx-redirect.nginx-webserver1:
     build:
-      context: ../../pools/nginx-webserver/nginx-webserver1
+      context: ../../../pools/nginx-webserver/nginx-webserver1
     container_name: nginx-redirect.nginx-webserver1
     ports:
       - '6091:80'

@@ -14,7 +14,7 @@
 ### Build and run the containers
 
 ```bash
-cd labs/nginx-lab
+cd labs/nginx/nginx-basic
 docker-compose up --build -d
 
 # To stop and remove contaienr, run:
