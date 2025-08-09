@@ -71,6 +71,7 @@ dotnet test
 - https://hub.docker.com/_/sonarqube
 - https://docs.sonarsource.com/sonarqube-server/latest/server-installation/introduction/
 - https://docs.sonarsource.com/sonarqube-server/latest/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates/
+- https://docs.sonarsource.com/sonarqube-community-build/analyzing-source-code/scanners/dotnet/introduction/
 
 ## License
 
