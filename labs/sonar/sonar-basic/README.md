@@ -22,6 +22,7 @@ This project demonstrates integrating a simple .NET Console application with **S
 2. Access SonarQube at `http://localhost:9000` (default credentials: `admin`/`admin`).
 
 3. Create a project in SonarQube and get the project key and token.
+   ![project-create](./assets/project-create.png)
 
 ## Run the Project
 
