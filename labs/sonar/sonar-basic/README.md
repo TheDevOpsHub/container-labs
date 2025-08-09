@@ -18,6 +18,7 @@ This project demonstrates integrating a simple .NET Console application with **S
    ```
 
    ![sonar-up](./assets/sonar-up.png)
+   !NOTE: The docker compose file using in this project is for Docker Desktop, if you use linux based OS, adjust the volume mount command appropriately
 
 2. Access SonarQube at `http://localhost:9000` (default credentials: `admin`/`admin`).
 
