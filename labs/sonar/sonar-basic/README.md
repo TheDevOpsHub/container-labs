@@ -26,9 +26,11 @@ This project demonstrates integrating a simple .NET Console application with **S
 
 ## Run the Project
 
+We can use this sample repo: https://github.com/dotnet/samples
+
 1. Clone or download the repo.
 
-2. Navigate to `SonarDemoApp` and restore dependencies:
+2. Navigate to the samples you want and restore dependencies (e.g: `core/getting-started/unit-testing-using-dotnet-test`):
 
    ```bash
    dotnet restore
