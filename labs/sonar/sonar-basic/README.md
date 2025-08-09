@@ -17,6 +17,8 @@ This project demonstrates integrating a simple .NET Console application with **S
    docker-compose up -d
    ```
 
+   ![sonar-up](./assets/sonar-up.png)
+
 2. Access SonarQube at `http://localhost:9000` (default credentials: `admin`/`admin`).
 
 3. Create a project in SonarQube and get the project key and token.
