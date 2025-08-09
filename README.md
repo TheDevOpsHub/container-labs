@@ -34,3 +34,4 @@ Below is a list of hands-on labs, organized by technology or tool. Each lab offe
 | 09  | Ubuntu - Launch and explore a minimal Ubuntu-based container environment.       | [ubuntu](./labs/os/ubuntu/)                                          | ✔️ Done |
 | 10  | Windows - Simulate a Windows container environment.                             | [windows](./labs/os/windows/)                                        | ✔️ Done |
 | 11  | Mix01 - Combine multiple tools (e.g., Nginx, Prometheus, Grafana) into one lab. | [aio](./labs/mix/aio/)                                               | ✔️ Done |
+| 12  | SonarQube - SonarQube .NET Demo.                                                | [sonar-basic](./labs/sonar/sonar-basic/)                             | ✔️ Done |
