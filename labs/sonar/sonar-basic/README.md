@@ -67,6 +67,9 @@ dotnet test
    NOTE: If we cannot execute `dotnet sonarscanner`, try to open new terminal or reload the cmd. Or make sure the dotnet Path is in environment variables
 
 3. View results at `http://localhost:9000`.
+   Once completed you can get the result like this:
+   ![project-scan-view](./assets/project-scan-view.png)
+   ![project-scan-view1](./assets/project-scan-view1.png)
 
 ## References
 
